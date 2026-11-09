@@ -11,6 +11,7 @@ const student = {
     city,
     age,
     skills,
+    university: "AGU",
 };
 function describe(s) {
     return `${s.name} из города ${s.city}`;

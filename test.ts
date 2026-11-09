@@ -17,7 +17,7 @@ const student: Student = {
   city,
   age,
   skills,
-  university: [AGU];
+  university: "AGU",
 };
 
 function describe(s: Student): string {

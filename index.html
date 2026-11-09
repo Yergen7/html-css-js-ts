@@ -2,23 +2,89 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Test страница</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        background: #0e813e;
-      }
-      h1 {
-        color: rgb(243, 239, 11);
-      }
-      p {
-        color:white;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Привет!</h1>
-    <p>Моя первая страница</p>
-    <a href="https://github.com">GitHub</a>
+    <div class="container">
+      <header class="hero">
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Переключить тему"
+          title="Переключить тему"
+        >
+          🌙
+        </button>
+        <h1>Привет!</h1>
+        <p>Моя первая страница</p>
+        <div class="greeting">
+          <strong id="greeting">Здравствуйте</strong> · <span id="clock">--:--:--</span>
+        </div>
+        <p><a href="https://github.com">GitHub</a></p>
+      </header>
+
+      <main class="grid">
+        <!-- Студент и навыки -->
+        <section class="card" aria-labelledby="skills-title">
+          <div class="profile">
+            <div class="avatar" aria-hidden="true">А</div>
+            <div>
+              <h2 id="skills-title">Айгерим</h2>
+              <p>Алматы · 25 лет · AGU</p>
+            </div>
+          </div>
+
+          <form id="skill-form" class="row" autocomplete="off">
+            <input id="skill-input" type="text" maxlength="30" placeholder="Новый навык…" aria-label="Новый навык" />
+            <button class="btn primary" type="submit">Добавить</button>
+          </form>
+
+          <div class="row">
+            <input id="skill-search" type="search" placeholder="Поиск по навыкам…" aria-label="Поиск по навыкам" />
+            <button id="skill-short" class="btn" type="button" aria-pressed="false">Короткие (≤ 4)</button>
+          </div>
+
+          <ul id="skill-list" class="chips" aria-live="polite"></ul>
+          <p id="skill-empty" class="empty" hidden>Ничего не найдено</p>
+          <p id="skill-count" class="counter"></p>
+        </section>
+
+        <!-- Задачи -->
+        <section class="card" aria-labelledby="todo-title">
+          <h2 id="todo-title">Список задач</h2>
+          <form id="todo-form" class="row" autocomplete="off">
+            <input id="todo-input" type="text" maxlength="100" placeholder="Что нужно сделать?" aria-label="Новая задача" />
+            <button class="btn primary" type="submit">Добавить</button>
+          </form>
+          <ul id="todo-list" class="todos"></ul>
+          <p id="todo-empty" class="empty">Задач пока нет — добавь первую!</p>
+          <div class="row" style="margin: 12px 0 0; justify-content: space-between; align-items: center">
+            <span id="todo-count" class="counter" style="margin: 0"></span>
+            <button id="todo-clear" class="btn" type="button">Убрать выполненные</button>
+          </div>
+        </section>
+
+        <!-- Pomodoro -->
+        <section class="card timer" aria-labelledby="timer-title">
+          <h2 id="timer-title">Pomodoro-таймер</h2>
+          <div class="row">
+            <button id="mode-work" class="btn" type="button" aria-pressed="true">Работа 25</button>
+            <button id="mode-break" class="btn" type="button" aria-pressed="false">Отдых 5</button>
+          </div>
+          <div id="timer-display" class="time" role="timer">25:00</div>
+          <div class="progress"><div id="timer-bar"></div></div>
+          <div class="row">
+            <button id="timer-toggle" class="btn primary" type="button">Старт</button>
+            <button id="timer-reset" class="btn" type="button">Сброс</button>
+          </div>
+          <p id="timer-status" class="status" aria-live="polite"></p>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js" defer></script>
   </body>
 </html>

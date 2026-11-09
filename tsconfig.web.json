@@ -1,0 +1,17 @@
+{
+  // Сборка браузерного скрипта: npx tsc -p tsconfig.web.json
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "auto",
+    "lib": ["esnext", "dom"],
+    "types": [],
+    "verbatimModuleSyntax": false,
+    "isolatedModules": false,
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": ["script.ts"],
+  "exclude": ["node_modules"]
+}
